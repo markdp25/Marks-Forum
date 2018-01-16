@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. User Model
+   -Devise
+     -email:string
+     -password:string
 
-Things you may want to cover:
+  -has_many :forum_threads
+  -has_many :forum_posts
 
-* Ruby version
+2. ForumThread
+  -title:string
+  -user_id:integer
 
-* System dependencies
+  -belongs_to :user
+  -has_many :forum_posts
 
-* Configuration
+3. ForumPost
+  -forum_thread_id:integer
+  -user_id:integer
+  -body:text
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  -belongs_to :forum_thread
+  -belongs_to :user
