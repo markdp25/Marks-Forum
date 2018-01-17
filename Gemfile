@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 
  gem 'devise'
  gem 'bootstrap-sass'
- 
+
  group :production do
    gem 'pg'
    gem 'rails_12factor'
@@ -13,7 +13,7 @@ source 'https://rubygems.org'
 
  group :development do
    gem 'sqlite3'
-   gem 'web-console', '~> 2.0'
+   gem 'web-console', '3.5.1'
    gem 'listen'
  end
 

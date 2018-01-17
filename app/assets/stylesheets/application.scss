@@ -14,4 +14,9 @@
  *= require_self
  */
  @import "bootstrap-sprockets";
-   @import "bootstrap";
+ @import "bootstrap";
+
+ .forum_post {
+   border-top: 1px solid #ccc;
+   padding: 8px 0px;
+ }

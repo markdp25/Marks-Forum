@@ -7,6 +7,7 @@ class ForumThreadsController < ApplicationController
   end
 
   def show
+
   end
 
   def new
@@ -15,12 +16,13 @@ class ForumThreadsController < ApplicationController
   end
 
   def create
-    @forum_thread = current_user.forum_threads.new forum_thread_params
-    @forum_thread.forum_posts.first.user_id = current_user.id
+    @forum_thread = ForumThread.new(params[:id])
+    @forum_thread.assign_attributes(forum_thread_params)
 
     if @forum_thread.save
-      redirect_to @forum_thread
+      redirect_to @forum_thread, notice: "Forum thread was created."
     else
+      flash.now[:alert] = "Error creating Forum."
       render :new
     end
   end
