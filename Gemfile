@@ -22,7 +22,6 @@ source 'https://rubygems.org'
  gem 'coffee-rails'
  gem 'jquery-rails'
  gem 'turbolinks'
- gem 'bootstrap'
  gem 'figaro'
 
  group :development, :test do

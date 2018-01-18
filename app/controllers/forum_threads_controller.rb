@@ -16,8 +16,8 @@ class ForumThreadsController < ApplicationController
   end
 
   def create
-    @forum_thread = ForumThread.new(params[:id])
-    @forum_thread.assign_attributes(forum_thread_params)
+    @forum_thread = current_user.forum_threads.new(forum_thread_params)
+
 
     if @forum_thread.save
       redirect_to @forum_thread, notice: "Forum thread was created."
@@ -33,6 +33,6 @@ class ForumThreadsController < ApplicationController
     end
 
     def forum_thread_params
-      params.require(:forum_thread).permit(:subject, forum_posts_attributes: [:body])
+      params.require(:forum_thread).permit(:subject, forum_posts_attributes: [:body, :user_id])
     end
 end
