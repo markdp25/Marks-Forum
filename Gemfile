@@ -23,6 +23,7 @@ source 'https://rubygems.org'
  gem 'jquery-rails'
  gem 'turbolinks'
  gem 'figaro'
+ gem 'sucker_punch'
 
  group :development, :test do
    gem 'byebug'
