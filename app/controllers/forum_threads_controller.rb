@@ -3,11 +3,12 @@ class ForumThreadsController < ApplicationController
   before_action :set_forum_thread, except: [:index, :new, :create]
 
   def index
-    @forum_threads = ForumThread.all
+    @q = ForumThread.search(params[:q])
+    @forum_threads = @q.result(distinct: true)
   end
 
   def show
-
+    @forum_post = ForumThread.new
   end
 
   def new
@@ -17,7 +18,7 @@ class ForumThreadsController < ApplicationController
 
   def create
     @forum_thread = current_user.forum_threads.new(forum_thread_params)
-
+    @forum_thread.forum_post.first.user_id = current_user.id
 
     if @forum_thread.save
       redirect_to @forum_thread, notice: "Forum thread was created."

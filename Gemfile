@@ -24,6 +24,9 @@ source 'https://rubygems.org'
  gem 'turbolinks'
  gem 'figaro'
  gem 'sucker_punch'
+ gem 'ransack', github: 'activerecord-hackery/ransack'
+ gem 'local_time'
+ gem 'record_tag_helper', '~> 1.0'
 
  group :development, :test do
    gem 'byebug'
