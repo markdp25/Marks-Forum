@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'comments/create', to: 'form#comments_create'
+
+  get 'comments/destroy'
+
   get 'welcome/about'
 
   devise_for :users

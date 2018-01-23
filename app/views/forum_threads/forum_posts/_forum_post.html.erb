@@ -1,2 +1,7 @@
   <p class="text-muted"> Posted by <%= forum_post.user.email %>  <%= local_time_ago forum_post.created_at %> </p>
   <p> <%= markdown(forum_post.body) %> </p>
+  <%= link_to 'Add a comment', comments_create_path, remote: true %>
+  <%= link_to 'Delete Post', method: :delete %>
+  <div id= "content">
+
+  </div>

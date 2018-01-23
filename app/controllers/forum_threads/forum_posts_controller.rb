@@ -14,6 +14,19 @@ class ForumThreads::ForumPostsController < ApplicationController
     end
   end
 
+  def destroy
+    @forum_post = ForumPost.find(forum_post_params)
+
+
+    if @forum_post.destroy
+      flash[:notice] = "Post was deleted."
+      redirect_to [@forum_thread.subject, @forum_thread]
+    else
+      flash[:alert] = "Post couldn't be deleted. Try again."
+      render :show
+    end
+  end
+
   private
 
   def forum_post_params
