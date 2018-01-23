@@ -10,8 +10,18 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require turbolinks
 //= require local-time
 //= require bootstrap
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+  var converter = new showdown.Converter();
+  $('#forum_post_body').keyup(function(){
+    var mdown = $(this).val();
+    var html = converter.makeHtml(mdown);
+    $('#forum_post_preview').html(html);
+  });
+});

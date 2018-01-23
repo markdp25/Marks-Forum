@@ -27,7 +27,8 @@ source 'https://rubygems.org'
  gem 'ransack', github: 'activerecord-hackery/ransack'
  gem 'local_time'
  gem 'record_tag_helper', '~> 1.0'
-
+ gem 'redcarpet'
+ 
  group :development, :test do
    gem 'byebug'
    gem 'spring'
