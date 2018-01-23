@@ -1,4 +1,2 @@
-<% @forum_thread.forum_posts.each do |post| %>
-  <p class="text-muted"> Posted by <%= post.user.email %>  <%= local_time_ago post.created_at %> </p>
-  <p> <%= post.body %> </p>
-<% end %>
+  <p class="text-muted"> Posted by <%= forum_post.user.email %>  <%= local_time_ago forum_post.created_at %> </p>
+  <p> <%= forum_post.body %> </p>
