@@ -13,7 +13,8 @@
     <div class= 'row'>
       <div class='col-md-8'>
         <% @forum_thread.forum_posts.each do |forum_post| %>
-          <%= render partial: 'forum_threads/forum_posts/forum_post', locals: { forum_post: forum_post }%>
+
+          <%= render partial: 'forum_threads/forum_posts/forum_post', locals: { forum_post: forum_post}%>
         <% end %>
       </div>
     <div class='col-md-8'>

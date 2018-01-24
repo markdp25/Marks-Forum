@@ -1,31 +1,34 @@
 class CommentsController < ApplicationController
-  def form
-     respond_to do |format|
-       format.html {}
-       format.js
-     end
+  def index
+    @comments = Comment.hash_tree
+  end
+
+  def new
+    @comment = Comment.new(comment_params)
+
   end
 
   def create
-     @forum_post = ForumPost.find(params[:id])
-     comment = @forum_post.comments.new(comment_params)
-     comment.user = current_user
+    @comment.user = current_user
+    if params[:comment][:parent_id].to_i > 0
+    parent = Comment.find_by_id(params[:comment].delete(:parent_id))
+    @comment = parent.children.build(comment_params)
+  else
+    @comment = Comment.new(comment_params)
+  end
 
-     if comment.save
-       flash[:notice] = "Comment saved successfully."
-       redirect_to [@forum_thread.subject, @forum_thread]
-     else
-       flash[:alert] = "Comment failed to save."
-       redirect_to [@forum_thread.subject, @forum_thread]
-     end
-   end
-
-  def destroy
+  if @comment.save
+    flash[:success] = 'Your comment was successfully added!'
+    redirect_to forum_threads_path
+  else
+    render 'new'
+  end
   end
 
   private
 
-   def comment_params
-     params.require(:comment).permit(:body)
-   end
+  def comment_params
+    params.require(:comment).permit(:body)
+  end
+
 end

@@ -28,7 +28,9 @@ source 'https://rubygems.org'
  gem 'local_time'
  gem 'record_tag_helper', '~> 1.0'
  gem 'redcarpet'
- 
+ gem 'closure_tree'
+ gem 'faker'
+
  group :development, :test do
    gem 'byebug'
    gem 'spring'

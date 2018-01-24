@@ -1,7 +1,8 @@
 class ForumPost < ApplicationRecord
   belongs_to :forum_thread
   belongs_to :user
-  has_many :comments, dependent: :destroy
+  has_many :comments
+  accepts_nested_attributes_for :comments
 
   validates :body, presence: true
 

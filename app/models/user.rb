@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :forum_threads
   has_many :forum_posts
-  has_many :comments, dependent: :destroy
+  has_many :comments
 end
