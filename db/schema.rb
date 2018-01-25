@@ -21,12 +21,10 @@ ActiveRecord::Schema.define(version: 20180124191016) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "title"
-    t.string "author"
+    t.integer "user_id"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "parent_id"
   end
 
   create_table "forum_posts", force: :cascade do |t|

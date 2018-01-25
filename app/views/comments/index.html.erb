@@ -1,2 +1,10 @@
-<%= render partial: 'comments/comment', locals: {comment: @comment} %>
-<%= comments_tree_for @comments %>
+<div class= "container">
+  <% @comments.each do |comment| %>
+    <%= render partial: 'comments/comment', locals: {comment: @comment} %>
+  <% end %>
+
+<div class= "pull-right">
+ <% link_to 'Add a new comment', new_comment_path, class: 'btn btn-success' %>
+</div>
+  <%= comments_tree_for @comments %>
+</div>
