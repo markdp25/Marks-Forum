@@ -1,7 +1,9 @@
 <div class= "container">
-  <% @comments.each do |comment| %>
-    <%= render partial: 'comments/comment', locals: {comment: @comment} %>
-  <% end %>
+  <h4>Comments</h4>
+    <% forum_post.comments.each do |comment| %>
+     <%= render partial: 'comments/comment', locals: {comment: comment, forum_post: @forum_post}  %>
+    <% end %>
+
 
 <div class= "pull-right">
  <% link_to 'Add a new comment', new_comment_path, class: 'btn btn-success' %>
